@@ -1,17 +1,33 @@
 import React from 'react';
+import FullCalendar, { DateRangeInput } from '@fullcalendar/react';
 
-function Timetable(): JSX.Element {
+import timeGridPlugin from '@fullcalendar/timegrid';
+import { Fab } from '@material-ui/core';
+import { Add } from '@material-ui/icons';
+
+function WeekCalendar(): JSX.Element {
 	return (
-		<div className='tab leftTab'>
-			<h1>Timetable</h1>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto ad
-				voluptates adipisci dolores culpa! Doloremque magnam, impedit quas, quos
-				soluta ipsam quasi cum labore facere, incidunt enim. Accusamus, aliquam
-				est.
-			</p>
+		<div className='calendarMargin'>
+			<div className='halfPage'>
+				<FullCalendar
+					views={{}}
+					plugins={[timeGridPlugin]}
+					initialView='timeGridWeek'
+					visibleRange={{
+						start: new Date(),
+						end: new Date(),
+					}}
+					validRange={{
+						start: new Date(),
+						end: new Date(),
+					}}
+				/>
+				<Fab className='fabRight' color='primary' aria-label='add'>
+					<Add />
+				</Fab>
+			</div>
 		</div>
 	);
 }
 
-export default Timetable;
+export default WeekCalendar;

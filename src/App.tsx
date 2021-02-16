@@ -1,13 +1,16 @@
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
 import React from 'react';
-
-import './styles/global.css';
-
-import Home from './pages/Home';
+import Header from './components/header';
+import Styles from './style/Styles';
+import { ThemeProvider } from '@material-ui/core';
+import { Theme } from './style/Theme';
 
 function App(): JSX.Element {
-	return <Home />;
+	return (
+		<ThemeProvider theme={Theme}>
+			<Header />
+			<Styles />
+		</ThemeProvider>
+	);
 }
 
 export default App;
